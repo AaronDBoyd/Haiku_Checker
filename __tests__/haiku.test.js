@@ -8,12 +8,17 @@ describe('Haiku', () => {
     expect(haiku.line2).toEqual("is");
     expect(haiku.line3).toEqual("a test");
   });
-  test('should split the words of a string into an array', () =>{
+  // test('should split the words of a string into an array', () =>{
+  //   const haiku1 = new Haiku("this is a test", "test oh yeah", "test uh oh");
+  //   expect(haiku1.splitString(haiku1.line1)).toEqual(["this", "is", "a", "test"]);
+  //   expect(haiku1.splitString(haiku1.line2)).toEqual(["test", "oh", "yeah"]);
+  //   expect(haiku1.splitString(haiku1.line3)).toEqual(["test", "uh", "oh"]);
+  // });
+
+  test('should count the number of vowels in a specific line of the object', () =>{
     const haiku1 = new Haiku("this is a test", "test oh yeah", "test uh oh");
-    expect(haiku1.splitString(haiku1.line1)).toEqual(["this", "is", "a", "test"]);
-    expect(haiku1.splitString(haiku1.line2)).toEqual(["test", "oh", "yeah"]);
-    expect(haiku1.splitString(haiku1.line3)).toEqual(["test", "uh", "oh"]);
-  });
+    expect(haiku1.vowelChecker(haiku1.line1)).toEqual(4);
+  })
 });
 
 
