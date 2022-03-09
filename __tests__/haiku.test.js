@@ -8,17 +8,26 @@ describe('Haiku', () => {
     expect(haiku.line2).toEqual("is");
     expect(haiku.line3).toEqual("a test");
   });
-  // test('should split the words of a string into an array', () =>{
-  //   const haiku1 = new Haiku("this is a test", "test oh yeah", "test uh oh");
-  //   expect(haiku1.splitString(haiku1.line1)).toEqual(["this", "is", "a", "test"]);
-  //   expect(haiku1.splitString(haiku1.line2)).toEqual(["test", "oh", "yeah"]);
-  //   expect(haiku1.splitString(haiku1.line3)).toEqual(["test", "uh", "oh"]);
-  // });
+  
+  describe('Haiku#vowelChecker()', () => {
 
-  test('should count the number of vowels in a specific line of the object', () =>{
-    const haiku1 = new Haiku("this is a test", "test oh yeah", "test uh oh");
-    expect(haiku1.vowelChecker(haiku1.line1)).toEqual(4);
-  })
+    test('should count the number of vowels in a specific line of the object', () =>{
+      const haiku1 = new Haiku("this is a test", "test oh yeah", "test uh oh");
+      expect(haiku1.vowelChecker(haiku1.line1)).toEqual(4);
+      expect(haiku1.vowelChecker(haiku1.line2)).toEqual(4);
+      expect(haiku1.vowelChecker(haiku1.line3)).toEqual(3);
+    })
+  });
+  
+  describe('Haiku#haikuChecker()', () => {
+
+    test('should return "true" if inputted lines follow 5-7-5 structure', () =>{
+      const haikuTest = new Haiku("aaaaa", "eeeeeee", "iiiii");
+      const haikuTest2 = new Haiku('lskjdeew', 'fheusjf', 'etwrudb');
+      expect(haikuTest.haikuChecker()).toEqual(true);
+      expect(haikuTest2.haikuChecker()).toEqual(false);
+    })
+  });  
 });
 
 

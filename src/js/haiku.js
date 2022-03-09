@@ -2,11 +2,10 @@
 // export default function FUNCTION NAME()
 
 export default class Haiku {
-  constructor(line1, line2, line3, vowels) {
+  constructor(line1, line2, line3) {
     this.line1 = line1;
     this.line2 = line2;
     this.line3 = line3;
-    this.vowels = 0;
   }
 
   vowelChecker(line) {
@@ -19,51 +18,18 @@ export default class Haiku {
     })
     return vowelCount;
   }
+  haikuChecker() {
+    if ((this.vowelChecker(this.line1) === 5) && (this.vowelChecker(this.line2) === 7) && (this.vowelChecker(this.line3) === 5)) {
+      return true;
+    } else {
+      return false;
+    }
+  }
 }
 
 
 
-  // splitString(line) {
-  //   const array = line.split(' ');
-  //   return array;
-  // }
-
-  // vowelChecker(array) {
-  //   // let vowels = 0;
-  //   for(let i = 0; i <= array.length; i++) {
-  //     if (array.includes("hat")) {
-  //       this.vowels += 1;
-  //     }
-  //     console.log("i = " + i);
-  //     console.log(array[i]);
-  //   }
-  //   console.log("vowels = " + this.vowels);
-  //   console.log(array);
-  // }
-
-
-// splitString() {
-//   const arrays = new Map([
-//     [1, this.line1.split(' ')],
-//     [2, this.line2.split(' ')],
-//     [3, this.line3.split(' ')]
-//   ])
-//   return arrays
-// }
-
-
-
-//   splitString(line) {
-//   const array = line.split(' ');
-//   let vowelChecker = 0
-//   array.forEach(function(word){
-//     if (word.includes("a" || "e" || "i" || "o" || "u")){
-//       vowelChecker++;
-//     }
-//     console.log(vowelChecker);
-//   })
-// return array;
-// }
+ 
 
 // TEST INPUT
 // let input1 = new Haiku("cat hat bat", "fat hat shoe", "goop man");
