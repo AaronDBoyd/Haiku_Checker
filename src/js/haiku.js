@@ -6,18 +6,27 @@ export default class Haiku {
     this.line1 = line1;
     this.line2 = line2;
     this.line3 = line3;
+    this.vowelCount = 0;
   }
 
   vowelChecker(line) {
-    const array = line.split('');
     let vowelCount = 0;
-    array.forEach(function(word) {
+    let silentEregex = /[aeiou][^aeiou]e\b/;
+    
+    const array = line.split('');
+    let arrayTwo = line.split(' ');
+   
+    for(let i = 0; i <= arrayTwo.length; i++) {
+      if(silentEregex.test(arrayTwo[i]) === true) {
+        vowelCount--;
+      };
+        array.forEach(function(word) {
       if (word.includes("a") || word.includes("e") || word.includes("i") || word.includes("o") || word.includes("u")) {
         vowelCount++; 
       }
     })
     return vowelCount;
-  }
+  }}
   haikuChecker() {
     if ((this.vowelChecker(this.line1) === 5) && (this.vowelChecker(this.line2) === 7) && (this.vowelChecker(this.line3) === 5)) {
       return true;
@@ -25,6 +34,15 @@ export default class Haiku {
       return false;
     }
   }
+  // silentVowelChecker(line) {
+  //   let silentEregex = /[aeiou][^aeiou]e\b/;
+  //   let array = line.split(' ');
+  //   for(let i = 0; i <= array.length; i++) {
+  //     if(silentEregex.test(array[i]) === true) {
+  //       this.vowelCount--;
+  //     }
+  //   }
+  // }
 }
 
 
@@ -82,3 +100,30 @@ export default class Haiku {
 // // returns true
 // console.log(regex.test('tear'));
 // // returns true
+
+// let silentEregex = /[aeiou][^aeiou]e\b/g;
+// console.log(silentEregex.test('temple'));
+// // returns false
+// console.log(silentEregex.test('whale'));
+// //returns true
+// console.log(silentEregex.test('scale'));
+// //returns true
+
+
+// SILENT VOWEL CHECKER
+// let test = "temple whale scale";
+
+//   function silentVowelChecker(line) {
+//     let silentEregex = /[aeiou][^aeiou]e\b/;
+//     let array = line.split(' ');
+//     let vowelCount = 0;
+//     for(let i = 0; i <= array.length; i++) {
+//       if(silentEregex.test(array[i]) === true) {
+//         console.log(array[i]);
+//         vowelCount++;
+//       }
+//     }
+//     return vowelCount;
+//   }
+
+// silentVowelChecker(test);
